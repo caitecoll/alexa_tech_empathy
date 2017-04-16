@@ -1,0 +1,33 @@
+{
+  "name": "tech-empathy",
+  "description": "Alexa Skill for hearing honest stories about bias and inclusion within the tech industry",
+  "main": "index.js",
+  "contributors": [
+    {
+      "name": "Caitlin Collins"
+    },
+    {
+      "name": "Sarah Olson"
+    }
+  ],
+  "dependencies": {
+    "alexa-sdk": "^1.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caitecoll/alexa_tech_empathy"
+  },
+  "keywords": [
+    "Alexa",
+    "skill",
+    "diversity",
+    "inclusion",
+    "bias"
+  ],
+  "author": "Caitlin Collins",
+  "homepage": "https://github.com/caitecoll/alexa_tech_empathy#readme"
+}

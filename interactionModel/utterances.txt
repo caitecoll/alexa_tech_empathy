@@ -1,0 +1,3 @@
+RandomStoryIntent tell me a story
+RandomStoryIntent let's hear a story
+RandomStoryIntent give me a story
