@@ -6,7 +6,7 @@ var config = require('config.js');
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var firstStory = database.ref('stories').limitToFirst(1);
+var stories = database.ref('stories').limitToFirst(100);
 
 exports.handler = function(event, context, callback){
     var alexa = Alexa.handler(event, context);
@@ -19,11 +19,8 @@ var skillHandlers = {
         this.emit(':ask', 'What type of story would you like to hear?')
     },
     'RandomStoryIntent': function() {
-        getRandomStory().then((snapshot) => {
-            snapshot.forEach((story) => {
-                var storyText = story.val().storyText;
-                this.emit(':tell', storyText);
-            });
+        getStories().then((storyCollection) => {
+            this.emit(':tell', playRandomStory(storyCollection));
         });
     },
     'Unhandled': function() {
@@ -31,6 +28,25 @@ var skillHandlers = {
     }
 };
 
-function getRandomStory() {
-    return firstStory.once('value');
+function getStories() {
+    return stories.once('value');
+}
+
+function getRandomIndex(maxValue) {
+    return Math.floor((Math.random() * maxValue));
+}
+
+function playRandomStory(stories) {
+    var randomIndex = getRandomIndex(stories.numChildren());
+    var i = 0;
+    var thisStory = null;
+
+    stories.forEach((story) => {
+        if (i === randomIndex) {
+            thisStory = story.val().storyText;
+        }
+        i++;
+    });
+
+    return thisStory;
 }
