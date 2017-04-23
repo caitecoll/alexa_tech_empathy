@@ -1,7 +1,52 @@
 {
- "intents": [
-   {
-     "intent": "RandomStoryIntent"
-   }
- ]
+  "intents": [
+    {
+      "intent": "RandomStoryIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.PreviousIntent"
+    },
+    {
+      "intent": "AMAZON.NextIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.LoopOnIntent"
+    },
+    {
+      "intent": "AMAZON.LoopOffIntent"
+    },
+    {
+      "intent": "AMAZON.ShuffleOnIntent"
+    },
+    {
+      "intent": "AMAZON.ShuffleOffIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    }
+  ]
 }
