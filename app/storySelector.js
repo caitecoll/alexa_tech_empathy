@@ -2,6 +2,7 @@
 
 var Alexa = require('alexa-sdk');
 var config = require('config.js');
+var constants = require('./constants');
 var controller = require('./controller.js');
 var firebase = require('firebase');
 
@@ -42,11 +43,11 @@ function playRandomStory(stories) {
 }
 
 function chooseAudioOrText(story, self) {
-    // if (story.audio !== '') {
+    if (story.audio !== '') {
         controller.play.call(self);
-    // } else {
-    // self.handler.state = constants.states.START_MODE;
+    } else {
+        self.handler.state = constants.states.START_MODE;
 
-    //     self.emit(':tell', story.storyText);
-    // }
+        self.emit(':tell', story.storyText);
+    }
 }
