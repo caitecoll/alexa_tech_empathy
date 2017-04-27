@@ -10,18 +10,13 @@ firebase.initializeApp(config.firebase);
 var database = firebase.database();
 var stories = database.ref('stories').limitToFirst(100);
 
-var textHandlers = {
-    'RandomStoryIntent': function() {
-        getStories().then((storyCollection) => {
-            var story = playRandomStory(storyCollection);
-            var self = this;
-            
-            chooseAudioOrText(story, self);
-        });
-    }
+var storySelector = {
+    getStories: getStories,
+    playRandomStory: playRandomStory,
+    chooseAudioOrText: chooseAudioOrText
 };
 
-module.exports = textHandlers;
+module.exports = storySelector;
 
 function getStories() {
     return stories.once('value');
@@ -47,9 +42,11 @@ function playRandomStory(stories) {
 }
 
 function chooseAudioOrText(story, self) {
-    if (story.audio !== '') {
-        controller.play(story.audio);
-    } else {
-        self.emit(':tell', story.storyText);
-    }
+    // if (story.audio !== '') {
+        controller.play.call(self);
+    // } else {
+    // self.handler.state = constants.states.START_MODE;
+
+    //     self.emit(':tell', story.storyText);
+    // }
 }

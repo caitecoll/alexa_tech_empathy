@@ -23,7 +23,7 @@ var audioEventHandlers = Alexa.CreateStateHandler(constants.states.PLAY_MODE, {
          */
         this.attributes['playbackFinished'] = true;
         this.attributes['enqueuedToken'] = false;
-        this.emit(':saveState', true);
+        this.emit(':saveState', false);
     },
     'PlaybackStopped' : function () {
         /*
@@ -37,7 +37,7 @@ var audioEventHandlers = Alexa.CreateStateHandler(constants.states.PLAY_MODE, {
         this.emit(':saveState', true);
     },
     'PlaybackFailed' : function () {
-        //  AudioPlayer.PlaybackNearlyFinished Directive received. Logging the error.
+        //  AudioPlayer.PlaybackFailed Directive received. Logging the error.
         console.log("Playback Failed : %j", this.event.request.error);
         this.context.succeed(true);
     }

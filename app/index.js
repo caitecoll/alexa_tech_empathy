@@ -1,7 +1,6 @@
 'use strict'
 var Alexa = require('alexa-sdk');
 var constants = require('constants.js');
-var textHandlers = require('textHandlers.js');
 var stateHandlers = require('./stateHandlers.js');
 var audioEventHandlers = require('./audioEventHandlers.js');
 
@@ -10,7 +9,6 @@ exports.handler = function(event, context, callback){
     alexa.appId = constants.appId;
     alexa.dynamoDBTableName = constants.dynamoDBTableName;
     alexa.registerHandlers(
-        textHandlers,
         audioEventHandlers,
         stateHandlers.startModeIntentHandlers,
         stateHandlers.playModeIntentHandlers,
