@@ -1,6 +1,6 @@
 {
   "name": "tech-empathy",
-  "description": "Alexa Skill for hearing honest stories about bias and inclusion within the tech industry",
+  "description": "Alexa Skill for hearing honest stories about inclusion and exclusion within the tech industry",
   "main": "index.js",
   "contributors": [
     {

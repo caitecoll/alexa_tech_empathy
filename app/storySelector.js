@@ -1,6 +1,5 @@
 'use strict';
 
-var Alexa = require('alexa-sdk');
 var config = require('config.js');
 var constants = require('./constants');
 var controller = require('./controller.js');
