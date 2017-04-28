@@ -15,5 +15,6 @@ exports.handler = function(event, context, callback){
         stateHandlers.remoteControllerHandlers,
         stateHandlers.resumeDecisionModeIntentHandlers
     );
+
     alexa.execute();
 };

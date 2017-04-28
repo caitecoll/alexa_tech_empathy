@@ -5,8 +5,6 @@ var constants = require('./constants');
 var controller = require('./controller.js');
 var firebase = require('firebase');
 
-firebase.initializeApp(config.firebase);
-
 var database = firebase.database();
 var stories = database.ref('stories').limitToFirst(100);
 
@@ -43,7 +41,7 @@ function playRandomStory(stories) {
 
 function chooseAudioOrText(story, self) {
     if (story.audio !== '') {
-        controller.play.call(self);
+        controller.play.call(self, story.audio, story.uuid);
     } else {
         self.handler.state = constants.states.START_MODE;
 
